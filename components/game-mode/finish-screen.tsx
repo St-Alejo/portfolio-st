@@ -1,6 +1,5 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import { Trophy, RotateCcw, ExternalLink } from "lucide-react"
 import { useGameStore } from "@/lib/game-store"
 
@@ -20,9 +19,11 @@ export function FinishScreen({ onRestart, onExit }: FinishScreenProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md animate-in fade-in duration-500">
       <div className="text-center max-w-2xl mx-4 animate-in zoom-in-95 duration-500 delay-200">
+        
+        {/* ICON + TITLE */}
         <div className="mb-8">
           <div className="w-32 h-32 mx-auto mb-6 relative">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 animate-pulse"></div>
+            <div className="absolute inset-0 rounded-full bg-linear-to-br from-yellow-400 to-yellow-600 animate-pulse"></div>
             <div className="absolute inset-0 flex items-center justify-center">
               <Trophy className="w-16 h-16 text-white" />
             </div>
@@ -35,6 +36,7 @@ export function FinishScreen({ onRestart, onExit }: FinishScreenProps) {
           </p>
         </div>
 
+        {/* SUMMARY BOX */}
         <div className="bg-black/60 backdrop-blur-sm p-6 rounded-lg border border-purple-500/30 mb-8">
           <h2 className="text-2xl font-bold gradient-text mb-4">Race Summary</h2>
           <div className="grid grid-cols-3 gap-4 text-center">
@@ -53,29 +55,40 @@ export function FinishScreen({ onRestart, onExit }: FinishScreenProps) {
           </div>
         </div>
 
-        <div className="space-y-3">
-          <Button
-            size="lg"
-            className="w-full max-w-xs bg-purple-600 hover:bg-purple-700 gap-2"
-            onClick={() => {
-              // TODO: Navigate to main portfolio
-              console.log("[v0] Navigate to main portfolio")
-              onExit()
-            }}
+        {/* BUTTONS */}
+        <div className="space-y-3 flex flex-col items-center">
+
+          {/* FULL PORTFOLIO BUTTON */}
+          <button
+            onClick={onExit}
+            className="
+              w-full max-w-xs flex items-center justify-center gap-2 py-3
+              rounded-lg font-medium text-white
+              bg-purple-600 hover:bg-purple-700
+              transition-all duration-300
+              shadow-lg hover:shadow-purple-600/30
+            "
           >
             <ExternalLink className="w-5 h-5" />
             View Full Portfolio
-          </Button>
+          </button>
 
-          <Button
-            size="lg"
-            variant="outline"
-            className="w-full max-w-xs border-purple-500 text-purple-300 hover:bg-purple-500/20 gap-2 bg-transparent"
+          {/* RACE AGAIN BUTTON */}
+          <button
             onClick={onRestart}
+            className="
+              w-full max-w-xs flex items-center justify-center gap-2 py-3
+              rounded-lg font-medium
+              border border-purple-500 text-purple-300
+              bg-transparent hover:bg-purple-500/20
+              transition-all duration-300
+              shadow-md hover:shadow-purple-500/30
+            "
           >
             <RotateCcw className="w-5 h-5" />
             Race Again
-          </Button>
+          </button>
+
         </div>
       </div>
     </div>
