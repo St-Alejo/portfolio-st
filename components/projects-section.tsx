@@ -43,64 +43,73 @@ export function ProjectsSection() {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-in", "fade-in", "zoom-in-50")
-        }
+        if (entry.isIntersecting) entry.target.classList.add("animate-in", "fade-in", "zoom-in-50")
       })
     }, { threshold: 0.1 })
 
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el) => observer.observe(el))
+    sectionRef.current?.querySelectorAll(".animate-on-scroll")?.forEach((el) => observer.observe(el))
 
     return () => observer.disconnect()
   }, [activeTab])
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" ref={sectionRef} className="py-20 relative bg-white dark:bg-[#050505] transition-colors duration-500">
+      
+      {/* Background Glow */}
+      <div className="absolute inset-0 gradient-purple-blue blur-3xl opacity-20 dark:opacity-40 dark:blur-2xl" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* HEADER */}
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="text-neon-purple">PROJ</span>
-            <span className="text-neon-blue">ECTS</span>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-linear-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
+            PROJECTS
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Here you will find some of the personal and clients projects that I created with each project containing its own case study
+
+          <p className="text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl text-pretty mx-auto">
+            Here you will find some of the personal and clients projects that I created, 
+            with each project containing its own case study and detailed explanation.
           </p>
         </div>
 
         {/* CUSTOM TABS */}
         <div className="w-full flex justify-center mb-12">
-          <div className="grid grid-cols-2 w-full max-w-md neon-glow-purple p-1 rounded-xl bg-background/30 backdrop-blur">
+          <div className="grid grid-cols-2 w-full max-w-md p-1 rounded-xl bg-white/20 dark:bg-black/30 backdrop-blur-xl border border-gray-300/50 dark:border-purple-500/20">
+
             <button
               onClick={() => setActiveTab("projects")}
-              className={`py-2 rounded-lg text-base transition-all
-                ${activeTab === "projects" ? "bg-primary/20 text-neon-purple font-semibold" : "text-muted-foreground"}`}
+              className={`py-2 rounded-lg text-base transition-all ${
+                activeTab === "projects"
+                  ? "bg-purple-600/20 text-purple-500 dark:text-purple-300 font-semibold"
+                  : "text-gray-600 dark:text-gray-400"
+              }`}
             >
               PROJECTS
             </button>
 
             <button
               onClick={() => setActiveTab("certificates")}
-              className={`py-2 rounded-lg text-base transition-all
-                ${activeTab === "certificates" ? "bg-primary/20 text-neon-blue font-semibold" : "text-muted-foreground"}`}
+              className={`py-2 rounded-lg text-base transition-all ${
+                activeTab === "certificates"
+                  ? "bg-blue-600/20 text-blue-500 dark:text-blue-300 font-semibold"
+                  : "text-gray-600 dark:text-gray-400"
+              }`}
             >
               CERTIFICATES
             </button>
+
           </div>
         </div>
-
-        {/* TAB CONTENT */}
 
         {/* PROJECTS GRID */}
         {activeTab === "projects" && (
           <div className="space-y-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
-                <div
+                
+                <div 
                   key={project.id}
-                  className="animate-on-scroll overflow-hidden hover:scale-105 hover:neon-glow-purple transition-all duration-300 bg-card/50 backdrop-blur-sm rounded-xl border border-border"
+                  className="animate-on-scroll overflow-hidden bg-white/90 dark:bg-black/40 border border-gray-300 dark:border-purple-500/30 backdrop-blur-md rounded-xl hover:scale-105 hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] transition-all duration-300"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="relative h-48 overflow-hidden rounded-t-xl">
@@ -108,21 +117,28 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="p-6 space-y-2">
-                    <h3 className="text-xl font-semibold gradient-text">{project.title}</h3>
-                    <p className="text-muted-foreground">{project.description}</p>
+                    <h3 className="text-xl font-semibold bg-linear-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {project.description}
+                    </p>
                   </div>
 
                   <div className="p-6 pt-0">
-                    <a
+                    <a 
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center border border-border bg-transparent rounded-lg py-2 hover:neon-glow-blue transition-all"
+                      className="w-full flex items-center justify-center border border-gray-300 dark:border-purple-500/40 rounded-lg py-2 hover:bg-purple-600/20 dark:hover:bg-purple-500/20 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all"
                     >
                       View More <ExternalLink className="ml-2 h-4 w-4" />
                     </a>
                   </div>
+
                 </div>
+
               ))}
             </div>
           </div>
@@ -133,9 +149,10 @@ export function ProjectsSection() {
           <div className="space-y-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {certificates.map((cert, index) => (
-                <div
+                
+                <div 
                   key={cert.id}
-                  className="animate-on-scroll overflow-hidden hover:scale-105 hover:neon-glow-cyan transition-all duration-300 bg-card/50 backdrop-blur-sm rounded-xl border border-border"
+                  className="animate-on-scroll overflow-hidden bg-white/90 dark:bg-black/40 border border-gray-300 dark:border-purple-500/30 backdrop-blur-md rounded-xl hover:scale-105 hover:shadow-[0_0_25px_rgba(56,189,248,0.4)] transition-all duration-300"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="relative h-48 overflow-hidden rounded-t-xl">
@@ -143,10 +160,17 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="p-6 space-y-2">
-                    <h3 className="text-lg font-semibold gradient-text">{cert.title}</h3>
-                    <p className="text-muted-foreground">{cert.issuer}</p>
+                    <h3 className="text-lg font-semibold bg-linear-to-r from-blue-500 to-cyan-400 dark:from-blue-300 dark:to-cyan-300 bg-clip-text text-transparent">
+                      {cert.title}
+                    </h3>
+
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {cert.issuer}
+                    </p>
                   </div>
+
                 </div>
+
               ))}
             </div>
           </div>
