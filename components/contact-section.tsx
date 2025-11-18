@@ -79,7 +79,8 @@ export function ContactSection() {
                   id="name" type="text" placeholder="Enter your name" required
                   value={formData.name} 
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-purple-500/30 bg-white/50 dark:bg-black/40 text-gray-900 dark:text-white backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-purple-500/30 bg-white/50 dark:bg-black/40
+                   text-gray-900 dark:text-white backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
                 />
               </div>
 
@@ -90,7 +91,8 @@ export function ContactSection() {
                   id="email" type="email" placeholder="Enter your email" required
                   value={formData.email} 
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-purple-500/30 bg-white/50 dark:bg-black/40 text-gray-900 dark:text-white backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-purple-500/30 bg-white/50 dark:bg-black/40 text-gray-900
+                   dark:text-white backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
                 />
               </div>
 
@@ -101,7 +103,8 @@ export function ContactSection() {
                   id="message" placeholder="Enter your message" required
                   value={formData.message} 
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-purple-500/30 bg-white/50 dark:bg-black/40 text-gray-900 dark:text-white backdrop-blur-sm min-h-[150px] focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-purple-500/30 bg-white/50 dark:bg-black/40 text-gray-900
+                   dark:text-white backdrop-blur-sm min-h-[150px] focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
                 />
               </div>
 
