@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 const experiences = [
   {
@@ -48,6 +47,8 @@ export function ExperienceSection() {
   return (
     <section id="experience" ref={sectionRef} className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* TITLE */}
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="text-neon-blue">EXPERI</span>
@@ -59,27 +60,39 @@ export function ExperienceSection() {
           </p>
         </div>
 
+        {/* EXPERIENCE CARDS */}
         <div className="max-w-4xl mx-auto space-y-6">
           {experiences.map((exp, index) => (
-            <Card
+            
+            <div
               key={exp.id}
-              className="animate-on-scroll gradient-purple-blue p-0.5 hover:scale-102 hover:neon-glow-blue transition-all duration-300"
               style={{ animationDelay: `${index * 150}ms` }}
+              className="
+                animate-on-scroll 
+                gradient-purple-blue p-0.5 rounded-xl
+                hover:scale-[1.02] hover:neon-glow-blue
+                transition-all duration-300
+              "
             >
-              <div className="bg-card rounded-lg p-6">
-                <CardHeader className="p-0 pb-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                    <CardTitle className="text-xl gradient-text">{exp.role}</CardTitle>
-                    <CardDescription className="text-sm font-mono">{exp.duration}</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-0">
-                  <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
-                </CardContent>
+              <div className="bg-card rounded-xl p-6">
+                
+                {/* HEADER */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+                  <h3 className="text-xl font-semibold gradient-text">{exp.role}</h3>
+                  <span className="text-sm font-mono text-muted-foreground">{exp.duration}</span>
+                </div>
+
+                {/* CONTENT */}
+                <p className="text-muted-foreground leading-relaxed">
+                  {exp.description}
+                </p>
+
               </div>
-            </Card>
+            </div>
+
           ))}
         </div>
+
       </div>
     </section>
   )
