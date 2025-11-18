@@ -37,16 +37,15 @@ export function ExperienceSection() {
   }, [])
 
   return (
-    <section id="experience" ref={sectionRef} className="py-20 relative bg-white dark:bg-[#050505] transition-colors duration-500">
-      
+    <section id="experience" ref={sectionRef} className="py-20 relative">
       {/* Glow background */}
-      <div className="absolute inset-0 gradient-purple-blue blur-3xl opacity-20 dark:opacity-40 dark:blur-2xl" />
+      <div className="absolute inset-0 gradient-purple-blue blur-[140px] opacity-15 dark:opacity-25 pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Title */}
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-linear-to-r from-blue-500 to-cyan-400 dark:from-blue-300 dark:to-cyan-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-cyan-400 dark:from-blue-300 dark:to-cyan-300 bg-clip-text text-transparent">
             EXPERIENCE
           </h2>
           <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto text-pretty">
@@ -64,7 +63,7 @@ export function ExperienceSection() {
 
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
-                  <h3 className="text-xl font-semibold bg-linear-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
+                  <h3 className="text-xl font-semibold bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
                     {exp.role}
                   </h3>
                   <span className="text-sm font-mono text-gray-600 dark:text-gray-400">{exp.duration}</span>

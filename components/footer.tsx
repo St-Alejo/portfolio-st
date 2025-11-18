@@ -1,6 +1,6 @@
 "use client"
 
-import { Github, Linkedin, MessageCircle } from "lucide-react"
+import { Github, Linkedin, MessageCircle } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -11,7 +11,7 @@ export function Footer() {
 
           {/* LEFT */}
           <div className="space-y-4 text-center md:text-left">
-            <h3 className="text-2xl font-bold bg-linear-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
               Steven Ortega
             </h3>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed max-w-md text-pretty mx-auto md:mx-0">
@@ -21,7 +21,7 @@ export function Footer() {
 
           {/* RIGHT */}
           <div className="flex flex-col items-center md:items-end">
-            <h3 className="text-xl font-bold bg-linear-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent mb-5">Social</h3>
+            <h3 className="text-xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent mb-5">Social</h3>
 
             <div className="flex gap-5">
 

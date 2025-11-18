@@ -43,16 +43,15 @@ export function TestimonialsSection() {
   }, [])
 
   return (
-    <section id="testimonials" ref={sectionRef} className="py-20 relative bg-white dark:bg-[#050505] transition-colors duration-500">
-
+    <section id="testimonials" ref={sectionRef} className="py-20 relative">
       {/* Background Glow */}
-      <div className="absolute inset-0 gradient-purple-blue blur-3xl opacity-20 dark:opacity-40 dark:blur-2xl" />
+      <div className="absolute inset-0 gradient-purple-blue blur-[150px] opacity-15 dark:opacity-25 pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* HEADER */}
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-linear-to-r from-cyan-500 to-purple-500 dark:from-cyan-300 dark:to-purple-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-purple-500 dark:from-cyan-300 dark:to-purple-300 bg-clip-text text-transparent">
             TESTIMONIES
           </h2>
 
@@ -77,7 +76,7 @@ export function TestimonialsSection() {
 
                   {/* Title + Role */}
                   <div className="space-y-2">
-                    <h3 className="text-xl font-bold bg-linear-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
+                    <h3 className="text-xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
                       {testimonial.name}
                     </h3>
 
@@ -94,7 +93,7 @@ export function TestimonialsSection() {
                   {/* Avatar */}
                   <div className="flex justify-center pt-4">
                     <div className="relative h-20 w-20 rounded-full overflow-hidden border-2 border-purple-500 dark:border-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.6)]">
-                      <img src={testimonial.image} alt={testimonial.name} className="h-full w-full object-cover" />
+                      <img src={testimonial.image || "/placeholder.svg"} alt={testimonial.name} className="h-full w-full object-cover" />
                     </div>
                   </div>
 

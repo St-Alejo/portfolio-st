@@ -49,15 +49,14 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 relative bg-white dark:bg-[#050505] transition-colors duration-500">
-      {/* Background Glow */}
-      <div className="absolute inset-0 gradient-purple-blue blur-3xl opacity-20 dark:opacity-40 dark:blur-2xl" />
+    <section id="contact" ref={sectionRef} className="py-20 relative">
+      <div className="absolute inset-0 gradient-purple-blue blur-[130px] opacity-15 dark:opacity-25 pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Title */}
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-linear-to-r from-purple-500 to-cyan-500 dark:from-purple-300 dark:to-cyan-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-cyan-500 dark:from-purple-300 dark:to-cyan-300 bg-clip-text text-transparent">
             CONTACT
           </h2>
           <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto text-pretty">
@@ -109,7 +108,7 @@ export function ContactSection() {
               </div>
 
               {/* Button */}
-              <button type="submit" disabled={isSubmitting} className="w-full py-3 rounded-lg text-white font-semibold bg-linear-to-r from-purple-600 to-blue-600 hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg dark:shadow-purple-500/20">
+              <button type="submit" disabled={isSubmitting} className="w-full py-3 rounded-lg text-white font-semibold bg-gradient-to-r from-purple-600 to-blue-600 hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg dark:shadow-purple-500/20">
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
 

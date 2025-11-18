@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink } from 'lucide-react'
 
 const projects = [
   {
@@ -53,16 +53,16 @@ export function ProjectsSection() {
   }, [activeTab])
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 relative bg-white dark:bg-[#050505] transition-colors duration-500">
+    <section id="projects" ref={sectionRef} className="py-20 relative">
       
       {/* Background Glow */}
-      <div className="absolute inset-0 gradient-purple-blue blur-3xl opacity-20 dark:opacity-40 dark:blur-2xl" />
+      <div className="absolute inset-0 gradient-purple-blue blur-[160px] opacity-15 dark:opacity-25 pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* HEADER */}
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-linear-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
             PROJECTS
           </h2>
 
@@ -113,11 +113,11 @@ export function ProjectsSection() {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="relative h-48 overflow-hidden rounded-t-xl">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    <img src={project.image || "/placeholder.svg"} alt={project.title} className="w-full h-full object-cover" />
                   </div>
 
                   <div className="p-6 space-y-2">
-                    <h3 className="text-xl font-semibold bg-linear-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
+                    <h3 className="text-xl font-semibold bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
                       {project.title}
                     </h3>
 
@@ -156,11 +156,11 @@ export function ProjectsSection() {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="relative h-48 overflow-hidden rounded-t-xl">
-                    <img src={cert.image} alt={cert.title} className="w-full h-full object-cover" />
+                    <img src={cert.image || "/placeholder.svg"} alt={cert.title} className="w-full h-full object-cover" />
                   </div>
 
                   <div className="p-6 space-y-2">
-                    <h3 className="text-lg font-semibold bg-linear-to-r from-blue-500 to-cyan-400 dark:from-blue-300 dark:to-cyan-300 bg-clip-text text-transparent">
+                    <h3 className="text-lg font-semibold bg-gradient-to-r from-blue-500 to-cyan-400 dark:from-blue-300 dark:to-cyan-300 bg-clip-text text-transparent">
                       {cert.title}
                     </h3>
 

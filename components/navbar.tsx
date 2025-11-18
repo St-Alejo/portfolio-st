@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, Sun, Moon, Gamepad2 } from "lucide-react"
+import { Menu, X, Sun, Moon, Gamepad2 } from 'lucide-react'
 import { useTheme } from "next-themes"
 
 export default function Navbar() {
@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="#hero" className="text-xl font-bold tracking-wide bg-linear-to-r from-blue-500 to-purple-500 dark:from-blue-300 dark:to-purple-300 bg-clip-text text-transparent drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(168,85,247,0.6)]">
+        <Link href="#hero" className="text-xl font-bold tracking-wide bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-300 dark:to-purple-300 bg-clip-text text-transparent drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(168,85,247,0.6)]">
           STEVEN ORTEGA
         </Link>
 
@@ -36,9 +36,9 @@ export default function Navbar() {
           <NavItem name="EXPERIENCE" href="#experience" />
           <NavItem name="CONTACT" href="#contact" />
 
-          <button className="px-3 py-1 rounded-lg flex items-center gap-2 bg-linear-to-r from-purple-600 to-blue-600 hover:scale-105 transition-all duration-300 text-white shadow-lg shadow-purple-500/20">
+          <Link href="/game" className="px-3 py-1 rounded-lg flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:scale-105 transition-all duration-300 text-white shadow-lg shadow-purple-500/20">
             <Gamepad2 className="w-4 h-4" /> Game Mode
-          </button>
+          </Link>
 
           <button onClick={toggleTheme} className="p-2 rounded-xl border border-black/20 bg-white/50 dark:border-purple-500/30 dark:bg-black/50 hover:bg-white/80 dark:hover:bg-black/70 backdrop-blur-sm transition-all duration-300">
             {theme === "dark" ? <Sun className="w-5 h-5 text-yellow-300" /> : <Moon className="w-5 h-5 text-gray-800" />}
@@ -61,9 +61,9 @@ export default function Navbar() {
           <NavItemMobile name="EXPERIENCE" href="#experience" setIsOpen={setIsOpen} />
           <NavItemMobile name="CONTACT" href="#contact" setIsOpen={setIsOpen} />
 
-          <button className="px-3 py-2 rounded-lg flex items-center gap-2 mt-2 bg-linear-to-r from-purple-600 to-blue-600 text-white shadow-md shadow-purple-500/30">
+          <Link href="/game" className="px-3 py-2 rounded-lg flex items-center gap-2 mt-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md shadow-purple-500/30">
             <Gamepad2 className="w-4 h-4" /> Game Mode
-          </button>
+          </Link>
 
           <button onClick={toggleTheme} className="p-2 rounded-xl border mt-2 border-black/20 bg-white/50 dark:border-purple-500/30 dark:bg-black/50 hover:bg-white/70 dark:hover:bg-black/70 backdrop-blur-sm transition-all duration-300">
             {theme === "dark" ? <Sun className="w-5 h-5 text-yellow-300" /> : <Moon className="w-5 h-5 text-gray-800" />}
