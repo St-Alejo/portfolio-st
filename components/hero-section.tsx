@@ -25,24 +25,48 @@ export function HeroSection() {
     return () => observer.disconnect()
   }, [])
 
-
   const buttonBase =
     "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 px-6 py-3 text-lg"
 
-  const buttonOutline =
-    `${buttonBase} border border-border bg-transparent hover:scale-105`
+  const buttonOutline = `
+    ${buttonBase}
+    border bg-transparent hover:scale-105
+    border-gray-900/30 text-gray-900
+    dark:border-purple-400/30 dark:text-gray-200
+  `
 
-  const buttonGradient =
-    `${buttonBase} gradient-purple-blue text-white hover:scale-105`
+  const buttonGradient = `
+    ${buttonBase}
+    gradient-purple-blue text-white hover:scale-105
+    shadow-lg shadow-purple-500/20
+    dark:shadow-purple-500/40
+  `
 
   return (
     <section
       id="home"
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+      className="
+        min-h-screen flex items-center justify-center relative overflow-hidden pt-16
+
+        /* Light mode */
+        bg-white text-gray-900
+
+        /* Dark mode */
+        dark:bg-[#050505] dark:text-gray-200
+
+        transition-colors duration-500
+      "
     >
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 gradient-purple-blue opacity-20 blur-3xl animate-pulse" />
+      {/* Gradient background */}
+      <div
+        className="
+          absolute inset-0 gradient-purple-blue blur-3xl opacity-25 animate-pulse
+
+          /* Dark mode glowing */
+          dark:opacity-40 dark:blur-2xl dark:from-purple-700/40 dark:to-blue-700/40
+        "
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -50,17 +74,27 @@ export function HeroSection() {
           {/* LEFT SIDE */}
           <div className="space-y-8 animate-on-scroll">
             <div className="space-y-4">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-balance">
-                Hi, I'm <span className="gradient-text">Steven Ortega</span>
+              <h1 className="
+                text-5xl sm:text-6xl lg:text-7xl font-bold text-balance
+              ">
+                Hi, I'm{" "}
+                <span
+                  className="
+                    gradient-text 
+                    dark:from-purple-300 dark:to-blue-300
+                  "
+                >
+                  Steven Ortega
+                </span>
               </h1>
-              <p className="text-xl sm:text-2xl text-muted-foreground text-pretty">
+
+              <p className="text-xl sm:text-2xl text-muted-foreground text-pretty dark:text-gray-300">
                 Full Stack Developer passionate about Artificial Intelligence and technology
               </p>
             </div>
 
+            {/* Social buttons */}
             <div className="flex flex-wrap gap-4">
-
-              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/steven-ortega-046874339/"
                 target="_blank"
@@ -71,7 +105,6 @@ export function HeroSection() {
                 LinkedIn
               </a>
 
-              {/* GitHub */}
               <a
                 href="https://github.com/St-Alejo"
                 target="_blank"
@@ -82,7 +115,6 @@ export function HeroSection() {
                 GitHub
               </a>
 
-              {/* WhatsApp */}
               <a
                 href="https://wa.me/573187993643"
                 target="_blank"
@@ -94,23 +126,20 @@ export function HeroSection() {
               </a>
             </div>
 
+            {/* Action buttons */}
             <div className="flex flex-wrap gap-4">
-
-              {/* Game Mode */}
               <Link href="/game" className={`${buttonGradient} neon-glow-cyan animate-pulse`}>
                 <Gamepad2 className="mr-2 h-5 w-5" />
                 Game Mode
               </Link>
 
-              {/* View Projects */}
               <a href="#projects" className={`${buttonGradient} neon-glow-purple`}>
                 <Briefcase className="mr-2 h-5 w-5" />
                 View Projects
               </a>
 
-              {/* CV Download */}
               <a
-                href=""
+                href="/cv.pdf"
                 download
                 className={`${buttonOutline} hover:scale-105`}
               >
@@ -120,17 +149,27 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* RIGHT SIDE - IMAGE */}
+          {/* RIGHT SIDE IMAGE */}
           <div className="animate-on-scroll flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md aspect-square">
-              <div className="absolute inset-0 gradient-purple-blue rounded-full blur-3xl opacity-30 animate-pulse" />
+              <div
+                className="
+                  absolute inset-0 gradient-purple-blue rounded-full blur-3xl opacity-30 animate-pulse
+                  dark:opacity-40 dark:blur-2xl
+                "
+              />
               <img
                 src="R.jpeg"
                 alt="Steven Ortega"
-                className="relative z-10 w-full h-full object-cover rounded-2xl neon-glow-purple"
+                className="
+                  relative z-10 w-full h-full object-cover rounded-2xl
+                  neon-glow-purple
+                  brightness-100 dark:brightness-100
+                "
               />
             </div>
           </div>
+
         </div>
       </div>
     </section>
