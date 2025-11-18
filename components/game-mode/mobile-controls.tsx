@@ -2,7 +2,6 @@
 
 import { useRef, useEffect, useState } from "react"
 import { useGameStore } from "@/lib/game-store"
-import { Button } from "@/components/ui/button"
 import { RotateCcw, Zap, Hand } from "lucide-react"
 
 export function MobileControls() {
@@ -14,8 +13,8 @@ export function MobileControls() {
   const isDragging = useRef(false)
   const joystickCenter = useRef({ x: 0, y: 0 })
 
+  // Detect mobile screen
   useEffect(() => {
-    // Detect mobile device
     const checkMobile = () => {
       const mobile =
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
@@ -29,6 +28,7 @@ export function MobileControls() {
     return () => window.removeEventListener("resize", checkMobile)
   }, [])
 
+  // Joystick logic
   useEffect(() => {
     if (!isMobile || !joystickRef.current) return
 
@@ -79,9 +79,8 @@ export function MobileControls() {
 
       handle.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`
 
-      // Normalize to -1 to 1 range
       const normalizedX = x / maxDistance
-      const normalizedY = -y / maxDistance // Invert Y for forward/backward
+      const normalizedY = -y / maxDistance
 
       setMobileInput({ joystick: { x: normalizedX, y: normalizedY } })
     }
@@ -104,18 +103,10 @@ export function MobileControls() {
       handleEnd()
     }
 
-    // Mouse events (for testing on desktop)
-    const handleMouseDown = (e: MouseEvent) => {
-      handleStart(e.clientX, e.clientY)
-    }
-
-    const handleMouseMove = (e: MouseEvent) => {
-      handleMove(e.clientX, e.clientY)
-    }
-
-    const handleMouseUp = () => {
-      handleEnd()
-    }
+    // Mouse events (desktop simulation)
+    const handleMouseDown = (e: MouseEvent) => handleStart(e.clientX, e.clientY)
+    const handleMouseMove = (e: MouseEvent) => handleMove(e.clientX, e.clientY)
+    const handleMouseUp = () => handleEnd()
 
     joystick.addEventListener("touchstart", handleTouchStart, { passive: false })
     joystick.addEventListener("touchmove", handleTouchMove, { passive: false })
@@ -139,7 +130,8 @@ export function MobileControls() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-30">
-      {/* Joystick - Left side */}
+
+      {/* JOYSTICK */}
       <div className="absolute bottom-8 left-8 pointer-events-auto">
         <div
           ref={joystickRef}
@@ -147,54 +139,28 @@ export function MobileControls() {
         >
           <div
             ref={joystickHandleRef}
-            className="absolute top-1/2 left-1/2 w-12 h-12 bg-purple-600/80 rounded-full border-2 border-purple-400 transform -translate-x-1/2 -translate-y-1/2 transition-none"
+            className="absolute top-1/2 left-1/2 w-12 h-12 bg-purple-600/80 rounded-full border-2 border-purple-400 
+            transform -translate-x-1/2 -translate-y-1/2 transition-none"
             style={{ touchAction: "none" }}
           >
-            <Hand className="w-6 h-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white" />
+            <Hand className="w-6 h-6 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
           </div>
         </div>
+
         <p className="text-xs text-gray-400 text-center mt-2">Steering</p>
       </div>
 
-      {/* Action buttons - Right side */}
+      {/* ACTION BUTTONS */}
       <div className="absolute bottom-8 right-8 flex flex-col gap-3 pointer-events-auto">
-        <Button
-          size="lg"
-          className="w-16 h-16 rounded-full bg-purple-600/80 hover:bg-purple-700 border-2 border-purple-400"
+
+        {/* Throttle */}
+        <button
           onTouchStart={() => setMobileInput({ throttle: true })}
           onTouchEnd={() => setMobileInput({ throttle: false })}
           onMouseDown={() => setMobileInput({ throttle: true })}
           onMouseUp={() => setMobileInput({ throttle: false })}
-        >
-          <Zap className="w-6 h-6" />
-        </Button>
-        <p className="text-xs text-gray-400 text-center">Throttle</p>
-
-        <Button
-          size="lg"
-          className="w-16 h-16 rounded-full bg-red-600/80 hover:bg-red-700 border-2 border-red-400 mt-2"
-          onTouchStart={() => setMobileInput({ brake: true })}
-          onTouchEnd={() => setMobileInput({ brake: false })}
-          onMouseDown={() => setMobileInput({ brake: true })}
-          onMouseUp={() => setMobileInput({ brake: false })}
-        >
-          <Hand className="w-6 h-6" />
-        </Button>
-        <p className="text-xs text-gray-400 text-center">Brake</p>
-
-        <Button
-          size="lg"
-          variant="outline"
-          className="w-16 h-16 rounded-full bg-black/40 border-purple-500/30 mt-2"
-          onClick={() => {
-            // Trigger respawn by simulating 'R' key
-            window.dispatchEvent(new KeyboardEvent("keydown", { key: "r" }))
-          }}
-        >
-          <RotateCcw className="w-6 h-6" />
-        </Button>
-        <p className="text-xs text-gray-400 text-center">Respawn</p>
-      </div>
-    </div>
-  )
-}
+          className="
+            w-16 h-16 rounded-full flex items-center justify-center
+            bg-purple-600/80 hover:bg-purple-700 
+            border-2 border-purple-400 text-white
+            active:scale-95 transit

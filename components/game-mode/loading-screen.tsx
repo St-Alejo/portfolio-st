@@ -54,7 +54,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
       </div>
 
       {/* Title */}
-      <h1 className="mb-4 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-5xl font-bold text-transparent">
+      <h1 className="mb-4 bg-linear-to-r from-purple-400 to-cyan-400 bg-clip-text text-5xl font-bold text-transparent">
         Loading Game Mode
       </h1>
 
@@ -64,7 +64,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
       {/* Progress bar */}
       <div className="w-96 overflow-hidden rounded-full bg-gray-800">
         <div
-          className="h-2 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 transition-all duration-300 ease-out"
+          className="h-2 rounded-full bg-linear-to-r from-purple-500 to-cyan-500 transition-all duration-300 ease-out"
           style={{ width: `${progress}%` }}
         />
       </div>
