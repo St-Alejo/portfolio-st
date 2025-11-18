@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
 import { Moon, Sun, Menu, X, Gamepad2 } from "lucide-react"
 import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
@@ -24,39 +23,47 @@ export function Navbar() {
 
   useEffect(() => {
     setMounted(true)
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Prevenir scroll cuando el menú móvil está abierto
+  // Disable scroll when mobile menu opens
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset"
   }, [isMobileMenuOpen])
 
   if (!mounted) return null
+
+  // 🔥 BUTTON VARIANTS (Tailwind Only)
+  const btnBase =
+    "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300"
+
+  const btnOutline =
+    `${btnBase} border border-border bg-transparent hover:scale-105 px-3 py-2 text-sm neon-border`
+
+  const btnGhost =
+    `${btnBase} p-2 hover:bg-accent/10`
 
   return (
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border shadow-lg" : "bg-transparent",
+        isScrolled
+          ? "bg-background/80 backdrop-blur-lg border-b border-border shadow-lg"
+          : "bg-transparent",
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          
           {/* Logo */}
           <a href="#home" className="text-xl font-bold gradient-text">
             STEVEN ORTEGA
           </a>
 
-          {/* Desktop Navigation - Oculto hasta pantallas grandes (lg) */}
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -69,71 +76,69 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Theme Toggle and Game Mode Button */}
+          {/* Right Controls */}
           <div className="flex items-center gap-4">
-            <Link href="/game">
-              <Button
-                variant="outline"
-                size="sm"
-                className="hidden lg:flex items-center gap-2 neon-border hover:neon-glow-purple transition-all duration-300 bg-transparent"
-              >
+
+            {/* GAME MODE BUTTON (desktop only) */}
+            <Link href="/game" className="hidden lg:flex">
+              <span className={`${btnOutline} neon-glow-purple gap-2`}>
                 <Gamepad2 className="h-4 w-4" />
                 GAME MODE
-              </Button>
+              </span>
             </Link>
 
-            <Button
-              variant="ghost"
-              size="icon"
+            {/* THEME TOGGLE */}
+            <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="hover:neon-glow-purple transition-all duration-300"
+              className={`${btnGhost} hover:neon-glow-purple`}
             >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+              {theme === "dark" ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </button>
 
-            {/* Mobile Menu Button - Visible hasta pantallas grandes */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="lg:hidden"
+            {/* MOBILE MENU TOGGLE */}
+            <button
+              className={`lg:hidden ${btnGhost}`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay con fondo sólido y blur */}
+      {/* MOBILE MENU */}
       {isMobileMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 top-16 z-40 lg:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
         >
-          {/* Fondo con blur mejorado */}
           <div className="absolute inset-0 bg-background/95 backdrop-blur-xl" />
-          
-          {/* Contenido del menú */}
+
           <div className="relative h-full overflow-y-auto">
             <div className="container mx-auto px-4 py-6 space-y-1">
+
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   className="block py-3 px-4 rounded-lg text-base font-medium text-foreground hover:text-neon-purple hover:bg-primary/10 transition-all duration-200"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name.toUpperCase()}
                 </a>
               ))}
-              
-              {/* Game Mode Link in Mobile Menu */}
-              <Link href="/game" onClick={() => setIsMobileMenuOpen(false)}>
+
+              {/* GAME MODE in Mobile Menu */}
+              <Link href="/game">
                 <div className="flex items-center gap-3 py-3 px-4 rounded-lg text-base font-medium text-neon-purple hover:text-neon-blue hover:bg-primary/10 transition-all duration-200">
                   <Gamepad2 className="h-5 w-5" />
                   GAME MODE
                 </div>
               </Link>
+
             </div>
           </div>
         </div>

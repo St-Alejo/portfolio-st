@@ -1,9 +1,6 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ExternalLink } from "lucide-react"
 
 const projects = [
@@ -31,42 +28,12 @@ const projects = [
 ]
 
 const certificates = [
-  {
-    id: 1,
-    title: "AWS Certified Developer",
-    issuer: "Amazon Web Services",
-    image: "/aws-certificate.jpg",
-  },
-  {
-    id: 2,
-    title: "React Advanced Certification",
-    issuer: "Meta",
-    image: "/react-certificate.jpg",
-  },
-  {
-    id: 3,
-    title: "Full Stack Development",
-    issuer: "Coursera",
-    image: "/full-stack-certificate.jpg",
-  },
-  {
-    id: 4,
-    title: "Machine Learning Specialization",
-    issuer: "Stanford University",
-    image: "/machine-learning-certificate.jpg",
-  },
-  {
-    id: 5,
-    title: "Cloud Architecture",
-    issuer: "Google Cloud",
-    image: "/cloud-architecture-certificate.jpg",
-  },
-  {
-    id: 6,
-    title: "Cybersecurity Fundamentals",
-    issuer: "IBM",
-    image: "/cybersecurity-certificate.jpg",
-  },
+  { id: 1, title: "AWS Certified Developer", issuer: "Amazon Web Services", image: "/aws-certificate.jpg" },
+  { id: 2, title: "React Advanced Certification", issuer: "Meta", image: "/react-certificate.jpg" },
+  { id: 3, title: "Full Stack Development", issuer: "Coursera", image: "/full-stack-certificate.jpg" },
+  { id: 4, title: "Machine Learning Specialization", issuer: "Stanford University", image: "/machine-learning-certificate.jpg" },
+  { id: 5, title: "Cloud Architecture", issuer: "Google Cloud", image: "/cloud-architecture-certificate.jpg" },
+  { id: 6, title: "Cybersecurity Fundamentals", issuer: "IBM", image: "/cybersecurity-certificate.jpg" },
 ]
 
 export function ProjectsSection() {
@@ -74,16 +41,13 @@ export function ProjectsSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "zoom-in-50")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-in", "fade-in", "zoom-in-50")
+        }
+      })
+    }, { threshold: 0.1 })
 
     const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
     elements?.forEach((el) => observer.observe(el))
@@ -94,86 +58,100 @@ export function ProjectsSection() {
   return (
     <section id="projects" ref={sectionRef} className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* HEADER */}
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="text-neon-purple">PROJ</span>
             <span className="text-neon-blue">ECTS</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Here you will find some of the personal and clients projects that I created with each project containing its
-            own case study
+            Here you will find some of the personal and clients projects that I created with each project containing its own case study
           </p>
         </div>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12 neon-glow-purple">
-            <TabsTrigger value="projects" className="text-base">
+        {/* CUSTOM TABS */}
+        <div className="w-full flex justify-center mb-12">
+          <div className="grid grid-cols-2 w-full max-w-md neon-glow-purple p-1 rounded-xl bg-background/30 backdrop-blur">
+            <button
+              onClick={() => setActiveTab("projects")}
+              className={`py-2 rounded-lg text-base transition-all
+                ${activeTab === "projects" ? "bg-primary/20 text-neon-purple font-semibold" : "text-muted-foreground"}`}
+            >
               PROJECTS
-            </TabsTrigger>
-            <TabsTrigger value="certificates" className="text-base">
-              CERTIFICATES
-            </TabsTrigger>
-          </TabsList>
+            </button>
 
-          <TabsContent value="projects" className="space-y-8">
+            <button
+              onClick={() => setActiveTab("certificates")}
+              className={`py-2 rounded-lg text-base transition-all
+                ${activeTab === "certificates" ? "bg-primary/20 text-neon-blue font-semibold" : "text-muted-foreground"}`}
+            >
+              CERTIFICATES
+            </button>
+          </div>
+        </div>
+
+        {/* TAB CONTENT */}
+
+        {/* PROJECTS GRID */}
+        {activeTab === "projects" && (
+          <div className="space-y-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
-                <Card
+                <div
                   key={project.id}
-                  className="animate-on-scroll overflow-hidden hover:scale-105 hover:neon-glow-purple transition-all duration-300 bg-card/50 backdrop-blur-sm"
+                  className="animate-on-scroll overflow-hidden hover:scale-105 hover:neon-glow-purple transition-all duration-300 bg-card/50 backdrop-blur-sm rounded-xl border border-border"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="relative h-48 overflow-hidden rounded-t-xl">
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                   </div>
-                  <CardHeader>
-                    <CardTitle className="gradient-text">{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
-                  </CardHeader>
-                  <CardFooter>
-                    <Button
-                      variant="outline"
-                      className="w-full hover:neon-glow-blue transition-all duration-300 bg-transparent"
-                      asChild
+
+                  <div className="p-6 space-y-2">
+                    <h3 className="text-xl font-semibold gradient-text">{project.title}</h3>
+                    <p className="text-muted-foreground">{project.description}</p>
+                  </div>
+
+                  <div className="p-6 pt-0">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center border border-border bg-transparent rounded-lg py-2 hover:neon-glow-blue transition-all"
                     >
-                      <a href={project.link} target="_blank" rel="noopener noreferrer">
-                        View More <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
-                  </CardFooter>
-                </Card>
+                      View More <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
               ))}
             </div>
-          </TabsContent>
+          </div>
+        )}
 
-          <TabsContent value="certificates" id="certificates" className="space-y-8">
+        {/* CERTIFICATES GRID */}
+        {activeTab === "certificates" && (
+          <div className="space-y-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {certificates.map((cert, index) => (
-                <Card
+                <div
                   key={cert.id}
-                  className="animate-on-scroll overflow-hidden hover:scale-105 hover:neon-glow-cyan transition-all duration-300 bg-card/50 backdrop-blur-sm"
+                  className="animate-on-scroll overflow-hidden hover:scale-105 hover:neon-glow-cyan transition-all duration-300 bg-card/50 backdrop-blur-sm rounded-xl border border-border"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={cert.image || "/placeholder.svg"}
-                      alt={cert.title}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="relative h-48 overflow-hidden rounded-t-xl">
+                    <img src={cert.image} alt={cert.title} className="w-full h-full object-cover" />
                   </div>
-                  <CardHeader>
-                    <CardTitle className="gradient-text text-lg">{cert.title}</CardTitle>
-                    <CardDescription>{cert.issuer}</CardDescription>
-                  </CardHeader>
-                </Card>
+
+                  <div className="p-6 space-y-2">
+                    <h3 className="text-lg font-semibold gradient-text">{cert.title}</h3>
+                    <p className="text-muted-foreground">{cert.issuer}</p>
+                  </div>
+                </div>
               ))}
             </div>
-          </TabsContent>
-        </Tabs>
+          </div>
+        )}
+
       </div>
     </section>
   )
