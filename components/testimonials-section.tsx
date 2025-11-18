@@ -72,7 +72,7 @@ export function TestimonialsSection() {
             <div
               key={testimonial.id}
               className="
-                animate-on-scroll gradient-purple-blue p-[2px] rounded-xl
+                animate-on-scroll gradient-purple-blue p-0.5 rounded-xl
                 hover:scale-105 transition-all duration-300
               "
               style={{ animationDelay: `${index * 150}ms` }}
