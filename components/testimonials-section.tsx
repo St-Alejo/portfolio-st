@@ -1,8 +1,6 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const testimonials = [
   {
@@ -55,6 +53,8 @@ export function TestimonialsSection() {
   return (
     <section id="testimonials" ref={sectionRef} className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* HEADER */}
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             <span className="text-neon-cyan">TESTIM</span>
@@ -66,31 +66,54 @@ export function TestimonialsSection() {
           </p>
         </div>
 
+        {/* GRID */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card
+            <div
               key={testimonial.id}
-              className="animate-on-scroll gradient-purple-blue p-[2px] hover:scale-105 transition-all duration-300"
+              className="
+                animate-on-scroll gradient-purple-blue p-[2px] rounded-xl
+                hover:scale-105 transition-all duration-300
+              "
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="bg-card rounded-lg p-6 h-full">
-                <CardContent className="p-0 space-y-6">
+              <div className="bg-card rounded-xl p-6 h-full">
+
+                {/* CONTENT */}
+                <div className="space-y-6">
+
+                  {/* Title + Role */}
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold gradient-text">{testimonial.name}</h3>
                     <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                   </div>
+
+                  {/* Text */}
                   <p className="text-muted-foreground leading-relaxed">{testimonial.content}</p>
+
+                  {/* Avatar */}
                   <div className="flex justify-center pt-4">
-                    <Avatar className="h-20 w-20 border-2 border-primary neon-glow-purple">
-                      <AvatarImage src={testimonial.image || "/placeholder.svg"} alt={testimonial.name} />
-                      <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
+                    <div className="relative h-20 w-20 rounded-full overflow-hidden border-2 border-primary neon-glow-purple">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="h-full w-full object-cover"
+                      />
+                      {!testimonial.image && (
+                        <div className="flex items-center justify-center h-full w-full bg-muted text-lg font-semibold">
+                          {testimonial.name.charAt(0)}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </CardContent>
+
+                </div>
+
               </div>
-            </Card>
+            </div>
           ))}
         </div>
+
       </div>
     </section>
   )
