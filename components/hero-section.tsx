@@ -125,7 +125,12 @@ export function HeroSection() {
                 {t.btnProjects}
               </a>
 
-              <a href="/cv.pdf" download className={`${buttonOutline} hover:scale-105`}>
+              
+              <a
+                href="/cv/CV_Steven.pdf"
+                download
+                className={`${buttonOutline} hover:scale-105`}
+              >
                 <FileText className="mr-2 h-5 w-5" />
                 {t.btnCV}
               </a>

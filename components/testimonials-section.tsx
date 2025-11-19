@@ -1,45 +1,47 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { useLanguage } from "@/lib/useLanguage"
+import translations from "@/public/language/i18n.json"
 
 const testimonials = [
   {
     id: 1,
-    name: "Valentina Vasquez",
-    role: "Student of UCC",
-    content:
-      "Working with Steven was a great experience. He has an incredible ability to solve problems, communicates his ideas very well, and always looks for the best technical solution. His commitment and professionalism made the project progress quickly and efficiently.",
+    key: "v1",
     image: "/Valentina.png",
   },
   {
     id: 2,
-    name: "Jose Burbano",
-    role: "Student of UCC",
-    content:
-      "Steven is a very solid engineer, skilled in both frontend and backend, and he always finds ways to optimize every part of the system. Collaborating with him was easy and productive; he maintains a smooth work environment and brings ideas that enhance the quality of the project.",
+    key: "v2",
     image: "/JoseB.webp",
   },
   {
     id: 3,
-    name: "Santiago Arevalo",
-    role: "Student of UCC",
-    content:
-      "Steven stands out for his responsibility, his ability to learn, and his skill at working in a team. He is proactive, creative, and has a strong command of development tools. Without a doubt, working with him made the process more efficient and enjoyable.",
+    key: "v3",
     image: "/Arevalo.jpg",
   },
-
 ]
 
 export function TestimonialsSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
+  // lenguaje dinámico
+  const { lang } = useLanguage()
+  const t = translations[lang].testimonials
+
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-4") }) },
+      (entries) =>
+        entries.forEach((entry) => {
+          if (entry.isIntersecting)
+            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-4")
+        }),
       { threshold: 0.1 }
     )
 
-    sectionRef.current?.querySelectorAll(".animate-on-scroll")?.forEach((el) => observer.observe(el))
+    sectionRef.current?.querySelectorAll(".animate-on-scroll")?.forEach((el) =>
+      observer.observe(el)
+    )
     return () => observer.disconnect()
   }, [])
 
@@ -49,24 +51,24 @@ export function TestimonialsSection() {
       <div className="absolute inset-0 gradient-purple-blue blur-[150px] opacity-15 dark:opacity-25 pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
+        
         {/* HEADER */}
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-purple-500 dark:from-cyan-300 dark:to-purple-300 bg-clip-text text-transparent">
-            TESTIMONIES
+            {t.title}
           </h2>
 
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto text-pretty">
-            Here you will find testimonials from clients and collaborators, each one sharing their experience of working with me and the impact of the projects we created together.
+            {t.desc}
           </p>
         </div>
 
         {/* GRID */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((item, index) => (
             <div
-              key={testimonial.id}
+              key={item.id}
               className="animate-on-scroll gradient-purple-blue p-0.5 rounded-xl hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] transition-all duration-300"
               style={{ animationDelay: `${index * 150}ms` }}
             >
@@ -78,23 +80,27 @@ export function TestimonialsSection() {
                   {/* Title + Role */}
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
-                      {testimonial.name}
+                      {t[item.key + "_name" as keyof typeof t]}
                     </h3>
 
                     <p className="text-sm text-gray-700 dark:text-gray-400 leading-relaxed">
-                      {testimonial.role}
+                      {t[item.key + "_role" as keyof typeof t]}
                     </p>
                   </div>
 
                   {/* Text */}
                   <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {testimonial.content}
+                    {t[item.key + "_text" as keyof typeof t]}
                   </p>
 
                   {/* Avatar */}
                   <div className="flex justify-center pt-4">
                     <div className="relative h-20 w-20 rounded-full overflow-hidden border-2 border-purple-500 dark:border-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.6)]">
-                      <img src={testimonial.image || "/placeholder.svg"} alt={testimonial.name} className="h-full w-full object-cover" />
+                      <img
+                        src={item.image}
+                        alt={t[item.key + "_name" as keyof typeof t]}
+                        className="h-full w-full object-cover"
+                      />
                     </div>
                   </div>
 
@@ -105,7 +111,6 @@ export function TestimonialsSection() {
           ))}
 
         </div>
-
       </div>
     </section>
   )

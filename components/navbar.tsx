@@ -65,7 +65,8 @@ export default function Navbar() {
           <button
             onClick={toggleLang}
             className="px-3 py-1 rounded-lg border border-gray-400/40 dark:border-purple-400/30 
-            hover:bg-white/50 dark:hover:bg-black/40 transition-all"
+              hover:bg-white/50 dark:hover:bg-black/40 transition-all
+              text-gray-900 dark:text-white"
           >
             {lang === "en" ? "ES" : "EN"}
           </button>
