@@ -2,12 +2,16 @@
 
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
+import { useLanguage } from "@/lib/useLanguage"
+import translations from "@/public/language/i18n.json"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState("")
   const sectionRef = useRef<HTMLElement>(null)
+  const { lang } = useLanguage()
+  const t = translations[lang].contact
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
