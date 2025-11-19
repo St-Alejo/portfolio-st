@@ -50,7 +50,7 @@ export function ChatWidget() {
 
     try {
       const response = await fetch(
-        "https://alejandro1508.app.n8n.cloud/webhook/d463b8ba-673d-4289-9a35-ad4476255ebc/chat",
+        "https://alejandro2006.app.n8n.cloud/webhook/b4a99ae4-ea87-4042-bdd8-9029d11d6dc3/chat",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
