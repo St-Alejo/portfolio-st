@@ -19,13 +19,8 @@ export default function Navbar() {
     setMounted(true)
   }, [])
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
-  }
-
-  const toggleLang = () => {
-    setLang(lang === "en" ? "es" : "en")
-  }
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark")
+  const toggleLang = () => setLang(lang === "en" ? "es" : "en")
 
   if (!mounted) return null
 
@@ -35,8 +30,7 @@ export default function Navbar() {
 
         <Link
           href="#hero"
-          className="text-xl font-bold tracking-wide bg-gradient-to-r from-blue-500 to-purple-500 
-          dark:from-blue-300 dark:to-purple-300 bg-clip-text text-transparent drop-shadow-sm"
+          className="text-xl font-bold tracking-wide bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-300 dark:to-purple-300 bg-clip-text text-transparent drop-shadow-sm"
         >
           STEVEN ORTEGA
         </Link>
@@ -52,19 +46,14 @@ export default function Navbar() {
 
           <button
             onClick={toggleLang}
-            className="px-3 py-1 rounded-lg border border-gray-400/40 dark:border-purple-400/30 
-              hover:bg-white/50 dark:hover:bg-black/40 transition-all
-              text-gray-900 dark:text-white"
+            className="px-3 py-1 rounded-lg border border-gray-400/40 dark:border-purple-400/30 hover:bg-white/50 dark:hover:bg-black/40 transition-all text-gray-900 dark:text-white"
           >
             {lang === "en" ? "ES" : "EN"}
           </button>
 
-
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-xl border border-black/20 bg-white/50 
-            dark:border-purple-500/30 dark:bg-black/50 hover:bg-white/80 
-            dark:hover:bg-black/70 backdrop-blur-sm transition-all duration-300"
+            className="p-2 rounded-xl border border-black/20 bg-white/50 dark:border-purple-500/30 dark:bg-black/50 hover:bg-white/80 dark:hover:bg-black/70 backdrop-blur-sm transition-all duration-300"
           >
             {theme === "dark" ? (
               <Sun className="w-5 h-5 text-yellow-300" />
@@ -72,17 +61,16 @@ export default function Navbar() {
               <Moon className="w-5 h-5 text-gray-800" />
             )}
           </button>
-
         </div>
 
+        {/* MENU HAMBURGUESA con CUADRO visible en light/dark */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 rounded-lg bg-white/30 dark:bg-black/30 backdrop-blur"
+          className="md:hidden p-2 rounded-lg border border-gray-400/40 dark:border-purple-400/30 bg-white/40 dark:bg-black/40 backdrop-blur transition-all"
         >
-          {isOpen ? <X /> : <Menu />}
+          {isOpen ? <X className="text-gray-900 dark:text-white" /> : <Menu className="text-gray-900 dark:text-white" />}
         </button>
       </div>
-
 
       {isOpen && (
         <div className="md:hidden flex flex-col gap-4 px-6 py-5 bg-white/90 dark:bg-black/90 backdrop-blur-xl border-t border-gray-300/60 dark:border-purple-500/20">
@@ -94,24 +82,21 @@ export default function Navbar() {
           <NavItemMobile name={t.navbar.experience} href="#experience" setIsOpen={setIsOpen} />
           <NavItemMobile name={t.navbar.contact} href="#contact" setIsOpen={setIsOpen} />
 
-
           <button
             onClick={toggleLang}
-            className="px-3 py-2 rounded-lg border border-gray-400/40 dark:border-purple-400/30 dark:text-white"
+            className="px-3 py-2 rounded-lg border border-gray-400/40 dark:border-purple-400/30 text-gray-900 dark:text-white"
           >
             {lang === "en" ? "ES" : "EN"}
           </button>
 
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-xl border mt-2 border-black/20 bg-white/50 
-            dark:border-purple-500/30 dark:bg-black/50 hover:bg-white/70 dark:hover:bg-black/70 
-            backdrop-blur-sm transition-all duration-300"
+            className="p-2 rounded-xl border mt-2 border-black/20 bg-white/50 dark:border-purple-500/30 dark:bg-black/50 hover:bg-white/70 dark:hover:bg-black/70 backdrop-blur-sm transition-all duration-300"
           >
             {theme === "dark" ? (
-              <Sun className="w-5 h-5 text-yellow-300" />
+              <Sun className="w-5 h-5 ml-60 text-yellow-300" />
             ) : (
-              <Moon className="w-5 h-5 text-gray-800" />
+              <Moon className="w-5 h-5 ml-60 text-gray-800" />
             )}
           </button>
         </div>
@@ -120,21 +105,16 @@ export default function Navbar() {
   )
 }
 
-
 function NavItem({ name, href }: { name: string; href: string }) {
   return (
     <Link
       href={href}
-      className="relative hover:text-purple-400 dark:hover:text-purple-300 text-gray-900 dark:text-white 
-                 transition-all duration-200 after:absolute after:left-0 after:-bottom-1 after:w-0 
-                 after:h-[2px] after:bg-purple-400 dark:after:bg-purple-300 hover:after:w-full 
-                 after:transition-all after:duration-300"
+      className="relative hover:text-purple-400 dark:hover:text-purple-300 text-gray-900 dark:text-white transition-all duration-200 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-purple-400 dark:after:bg-purple-300 hover:after:w-full after:transition-all after:duration-300"
     >
       {name}
     </Link>
   )
 }
-
 
 function NavItemMobile({
   name,
@@ -149,8 +129,7 @@ function NavItemMobile({
     <Link
       href={href}
       onClick={() => setIsOpen(false)}
-      className="py-2 border-b border-gray-300/30 dark:border-purple-500/20 hover:text-purple-500 
-                 dark:hover:text-purple-400 text-gray-900 dark:text-white transition-all"
+      className="py-2 border-b border-gray-300/30 dark:border-purple-500/20 hover:text-purple-500 dark:hover:text-purple-400 text-gray-900 dark:text-white transition-all"
     >
       {name}
     </Link>
