@@ -1,0 +1,233 @@
+{
+  "en": {
+    "navbar": {
+      "home": "HOME",
+      "about": "ABOUT ME",
+      "projects": "PROJECTS",
+      "testimonials": "TESTIMONIALS",
+      "experience": "EXPERIENCE",
+      "contact": "CONTACT",
+      "gamemode": "Game Mode"
+    },
+
+    "hero": {
+      "hi": "Hi, I'm",
+      "name": "Steven Ortega",
+      "desc": "Full Stack Developer passionate about Artificial Intelligence and technology.",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "whatsapp": "WhatsApp",
+      "btnGame": "Game Mode",
+      "btnProjects": "View Projects",
+      "btnCV": "Download CV"
+    },
+
+    "about": {
+      "title": "ABOUT ME",
+      "p1": "Here you will find more information about me, what I do, and the skills I’ve developed over time while working with modern technologies and real-world projects.",
+      "subtitle": "Get to know me!",
+      "txt1": "I'm a Software Engineer passionate about Web and Backend Development, building modern, efficient, and scalable solutions.",
+      "txt2": "I'm also deeply interested in Cybersecurity and AI-powered Automation, combining these fields to create smarter, safer, and high-performance systems.",
+      "txt3": "I enjoy learning and sharing knowledge with the developer community, contributing with experience, best practices, and real-world projects.",
+      "hobbiesTitle": "My Hobbies & Interests",
+      "hobbiesText": "Beyond my passion for technology, I enjoy living new experiences outside of coding. I love traveling the world and discovering new cultures, playing soccer and volleyball to stay active, and going for motorcycle rides whenever I can. I'm also a big fan of video games and movies—spaces where I relax, get inspired, and connect with my creative side.",
+      "skills": "My Skills",
+
+      "skill_html": "HTML",
+      "skill_css": "CSS",
+      "skill_js": "JavaScript",
+      "skill_react": "React",
+      "skill_node": "Node.js",
+      "skill_ts": "TypeScript",
+      "skill_python": "Python",
+      "skill_spring": "Spring Boot",
+      "skill_mongo": "MongoDB",
+      "skill_postgres": "PostgreSQL",
+      "skill_docker": "Docker",
+      "skill_git": "Git"
+    },
+
+    "projects": {
+      "title": "PROJECTS",
+      "desc": "Here you will find some of the personal and clients projects that I created, with each project containing its own case study and detailed explanation.",
+      "tab_projects": "PROJECTS",
+      "tab_certificates": "CERTIFICATES",
+
+      "pharmazync_title": "Pharmazync",
+      "pharmazync_desc": "An AI-powered pharmaceutical chatbot, developed using automated workflows in n8n. It handles inquiries about drugs, stock, interactions, general recommendations, and referral to human staff, integrating APIs, validations, and custom logic to provide accurate and fast responses.",
+      
+      "clock_title": "Clock App",
+      "clock_desc": "An advanced clock programmed in Python that manages multiple time zones using date and time libraries. It allows you to check international times, adjust specific regions, and run additional functions such as time conversion, custom formats, and automated utilities.",
+      
+      "centers_title": "Centers Platform",
+      "centers_desc": "Streaming platform-like interface made in JavaScript, with smooth navigation, dynamic catalog, and design inspired by modern services like Netflix.",
+      
+      "view_more": "View More"
+    },
+
+    "testimonials": {
+      "title": "TESTIMONIES",
+      "desc": "Here you will find testimonials from clients and collaborators, each one sharing their experience of working with me and the impact of the projects we created together.",
+
+      "v1_name": "Valentina Vasquez",
+      "v1_role": "Student of UCC",
+      "v1_text": "Working with Steven was a great experience. He has an incredible ability to solve problems, communicates his ideas very well, and always looks for the best technical solution. His commitment and professionalism made the project progress quickly and efficiently.",
+
+      "v2_name": "Jose Burbano",
+      "v2_role": "Student of UCC",
+      "v2_text": "Steven is a very solid engineer, skilled in both frontend and backend, and he always finds ways to optimize every part of the system. Collaborating with him was easy and productive; he maintains a smooth work environment and brings ideas that enhance the quality of the project.",
+
+      "v3_name": "Santiago Arevalo",
+      "v3_role": "Student of UCC",
+      "v3_text": "Steven stands out for his responsibility, his ability to learn, and his skill at working in a team. He is proactive, creative, and has a strong command of development tools. Without a doubt, working with him made the process more efficient and enjoyable."
+    },
+
+    "experience": {
+      "title": "EXPERIENCE",
+      "desc": "Here you will find a summary of my professional experience, highlighting the roles, skills, and projects that have shaped my development journey.",
+
+      "exp1_role": "Freelance Developer",
+      "exp1_year": "2025 — Present",
+      "exp1_desc": "Creation of an automation for the 360 travel and tourism agency",
+
+      "exp2_role": "Student project",
+      "exp2_year": "2025 — Present",
+      "exp2_desc": "Creation of a chatbot for pharmacies",
+
+      "exp3_role": "Research Assistant — University X",
+      "exp3_year": "2022 — 2023",
+      "exp3_desc": "Collaboration on artificial intelligence projects applied to process optimization."
+    },
+
+    "contact": {
+      "title": "CONTACT",
+      "desc": "Feel free to contact me by submitting the form below and I will get back to you as soon as possible.",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message"
+    },
+
+    "footer": {
+      "bio": "A Full Stack Developer crafting immersive web applications, modern UI experiences, and AI-powered solutions that elevate digital products.",
+      "social": "Social",
+      "rights": "All rights reserved."
+    }
+  },
+
+  "es": {
+    "navbar": {
+      "home": "INICIO",
+      "about": "SOBRE MÍ",
+      "projects": "PROYECTOS",
+      "testimonials": "TESTIMONIOS",
+      "experience": "EXPERIENCIA",
+      "contact": "CONTACTO",
+      "gamemode": "Modo Juego"
+    },
+
+    "hero": {
+      "hi": "Hola, soy",
+      "name": "Steven Ortega",
+      "desc": "Desarrollador Full Stack apasionado por la Inteligencia Artificial y la tecnología.",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "whatsapp": "WhatsApp",
+      "btnGame": "Modo Juego",
+      "btnProjects": "Ver Proyectos",
+      "btnCV": "Descargar CV"
+    },
+
+    "about": {
+      "title": "SOBRE MÍ",
+      "p1": "Aquí encontrarás más información sobre mí, lo que hago y las habilidades que he desarrollado trabajando con tecnologías modernas y proyectos reales.",
+      "subtitle": "¡Conóceme!",
+      "txt1": "Soy un Ingeniero de Software apasionado por el Desarrollo Web y Backend, creando soluciones modernas, eficientes y escalables.",
+      "txt2": "También estoy profundamente interesado en la Ciberseguridad y la Automatización con IA, combinando estos campos para crear sistemas más inteligentes, seguros y de alto rendimiento.",
+      "txt3": "Me gusta aprender y compartir conocimiento con la comunidad de desarrolladores, aportando experiencia, buenas prácticas y proyectos reales.",
+      "hobbiesTitle": "Mis Hobbies e Intereses",
+      "hobbiesText": "Más allá de la tecnología, disfruto vivir nuevas experiencias fuera del código. Me encanta viajar por el mundo, descubrir nuevas culturas, jugar fútbol y voleibol para mantenerme activo, y salir en moto siempre que puedo. También soy fan de los videojuegos y las películas, espacios donde me relajo, me inspiro y conecto con mi lado creativo.",
+      "skills": "Mis Habilidades",
+
+      "skill_html": "HTML",
+      "skill_css": "CSS",
+      "skill_js": "JavaScript",
+      "skill_react": "React",
+      "skill_node": "Node.js",
+      "skill_ts": "TypeScript",
+      "skill_python": "Python",
+      "skill_spring": "Spring Boot",
+      "skill_mongo": "MongoDB",
+      "skill_postgres": "PostgreSQL",
+      "skill_docker": "Docker",
+      "skill_git": "Git"
+    },
+
+    "projects": {
+      "title": "PROYECTOS",
+      "desc": "Aquí encontrarás algunos proyectos personales y de clientes que he creado, cada uno con su estudio de caso y explicación detallada.",
+      "tab_projects": "PROYECTOS",
+      "tab_certificates": "CERTIFICADOS",
+
+      "pharmazync_title": "Pharmazync",
+      "pharmazync_desc": "Un chatbot farmacéutico con IA desarrollado con automatizaciones en n8n. Maneja consultas sobre medicamentos, stock, interacciones, recomendaciones y derivación a personal humano, integrando APIs, validaciones y lógica personalizada.",
+      
+      "clock_title": "Clock App",
+      "clock_desc": "Un reloj avanzado programado en Python que maneja múltiples zonas horarias utilizando librerías de fecha y tiempo. Permite consultar horas internacionales, ajustar regiones específicas y ejecutar funciones como conversión de tiempo, formatos personalizados y utilidades automáticas.",
+      
+      "centers_title": "Centers Platform",
+      "centers_desc": "Interfaz tipo plataforma de streaming hecha en JavaScript, con navegación fluida, catálogo dinámico y diseño inspirado en servicios modernos como Netflix.",
+      
+      "view_more": "Ver Más"
+    },
+
+    "testimonials": {
+      "title": "TESTIMONIOS",
+      "desc": "Aquí encontrarás testimonios de clientes y colaboradores, cada uno compartiendo su experiencia trabajando conmigo y el impacto de los proyectos que construimos juntos.",
+
+      "v1_name": "Valentina Vasquez",
+      "v1_role": "Estudiante de la UCC",
+      "v1_text": "Trabajar con Steven fue una gran experiencia. Tiene una habilidad increíble para resolver problemas, comunica muy bien sus ideas y siempre busca la mejor solución técnica. Su compromiso y profesionalismo hicieron que el proyecto avanzara rápido y de manera eficiente.",
+
+      "v2_name": "Jose Burbano",
+      "v2_role": "Estudiante de la UCC",
+      "v2_text": "Steven es un ingeniero muy sólido, con habilidades tanto en frontend como en backend, y siempre encuentra maneras de optimizar cada parte del sistema. Colaborar con él fue fácil y productivo; mantiene un ambiente de trabajo fluido y aporta ideas que elevan la calidad del proyecto.",
+
+      "v3_name": "Santiago Arevalo",
+      "v3_role": "Estudiante de la UCC",
+      "v3_text": "Steven destaca por su responsabilidad, su capacidad de aprender y su habilidad para trabajar en equipo. Es proactivo, creativo y maneja muy bien las herramientas de desarrollo. Sin duda, trabajar con él hizo el proceso más eficiente y agradable."
+    },
+
+    "experience": {
+      "title": "EXPERIENCIA",
+      "desc": "Aquí encontrarás un resumen de mi experiencia profesional, destacando los roles, habilidades y proyectos que han formado mi camino de desarrollo.",
+
+      "exp1_role": "Desarrollador Freelance",
+      "exp1_year": "2025 — Presente",
+      "exp1_desc": "Creación de una automatización para la agencia de viajes y turismo 360",
+
+      "exp2_role": "Proyecto estudiantil",
+      "exp2_year": "2025 — Presente",
+      "exp2_desc": "Creación de un chatbot para farmacias",
+
+      "exp3_role": "Asistente de Investigación — Universidad X",
+      "exp3_year": "2022 — 2023",
+      "exp3_desc": "Colaboración en proyectos de inteligencia artificial aplicada a la optimización de procesos."
+    },
+
+    "contact": {
+      "title": "CONTACTO",
+      "desc": "Puedes contactarme enviando el formulario y te responderé tan pronto como sea posible.",
+      "name": "Nombre",
+      "email": "Correo",
+      "message": "Mensaje",
+      "send": "Enviar Mensaje"
+    },
+
+    "footer": {
+      "bio": "Desarrollador Full Stack creando aplicaciones web inmersivas, experiencias UI modernas y soluciones impulsadas por IA que elevan productos digitales.",
+      "social": "Redes",
+      "rights": "Todos los derechos reservados."
+    }
+  }
+}

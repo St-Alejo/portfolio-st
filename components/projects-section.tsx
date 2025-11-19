@@ -2,13 +2,14 @@
 
 import { useState, useEffect, useRef } from "react"
 import { ExternalLink } from 'lucide-react'
+import { link } from "fs"
 
 const projects = [
   {
     id: 1,
     title: "Pharmazync",
     description: "An AI-powered pharmaceutical chatbot, developed using automated workflows in n8n. It handles inquiries about drugs, stock, interactions, general recommendations, and referral to human staff, integrating APIs, validations, and custom logic to provide accurate and fast responses.",
-    image: "/pharmacy-management-dashboard.jpg",
+    image: "/projects/PharmaSync.webp",
     link: "https://github.com/SantiagoArTyrs/PharmaSync.git",
   },
   {
@@ -28,12 +29,9 @@ const projects = [
 ]
 
 const certificates = [
-  { id: 1, title: "AWS Certified Developer", issuer: "Amazon Web Services", image: "/aws-certificate.jpg" },
-  { id: 2, title: "React Advanced Certification", issuer: "Meta", image: "/react-certificate.jpg" },
-  { id: 3, title: "Full Stack Development", issuer: "Coursera", image: "/full-stack-certificate.jpg" },
-  { id: 4, title: "Machine Learning Specialization", issuer: "Stanford University", image: "/machine-learning-certificate.jpg" },
-  { id: 5, title: "Cloud Architecture", issuer: "Google Cloud", image: "/cloud-architecture-certificate.jpg" },
-  { id: 6, title: "Cybersecurity Fundamentals", issuer: "IBM", image: "/cybersecurity-certificate.jpg" },
+  { id: 1, title: "HTML 5 Certified Developer", issuer: "HOLA MUNDO.IO", image: "/certificados/html.png", link: "file:///C:/Users/Steven/AppData/Local/Microsoft/Windows/INetCache/IE/599NL0E5/Steven%20Alejandro%20Ortega%20Riascos%20-%202025-06-05[1].pdf" },
+  { id: 2, title: "CSS 3 Certification", issuer: "HOLA MUNDO.IO", image: "/certificados/css3.png" },
+
 ]
 
 export function ProjectsSection() {

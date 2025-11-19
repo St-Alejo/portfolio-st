@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import Image from "next/image"
 
+
 const skills = [
   { name: "HTML", icon: "/iconos/html-5.png" },
   { name: "CSS", icon: "/iconos/css-3.png" },

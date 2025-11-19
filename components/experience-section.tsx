@@ -6,14 +6,14 @@ const experiences = [
   {
     id: 1,
     role: "Freelance Developer",
-    duration: "2023 — Present",
-    description: "Creation of web and mobile applications for national and international clients.",
+    duration: "2025 — Present",
+    description: "Creation of an automation for the 360 travel and tourism agency",
   },
   {
     id: 2,
-    role: "University CodeMentor",
-    duration: "2023 — Present",
-    description: "Creation of web and mobile applications for national and international clients.",
+    role: "Student project",
+    duration: "2025 — Present",
+    description: "Creation of a chatbot for pharmacies",
   },
   {
     id: 3,

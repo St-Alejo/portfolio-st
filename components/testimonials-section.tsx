@@ -17,7 +17,7 @@ const testimonials = [
     role: "Student of UCC",
     content:
       "Steven is a very solid engineer, skilled in both frontend and backend, and he always finds ways to optimize every part of the system. Collaborating with him was easy and productive; he maintains a smooth work environment and brings ideas that enhance the quality of the project.",
-    image: "/professional-person-2.png",
+    image: "/JoseB.webp",
   },
   {
     id: 3,
