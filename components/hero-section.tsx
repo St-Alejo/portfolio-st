@@ -1,11 +1,17 @@
 "use client"
 
-import { Github, Linkedin, MessageCircle, FileText, Briefcase, Gamepad2 } from 'lucide-react'
+import { Github, Linkedin, MessageCircle, FileText, Briefcase, Gamepad2 } from "lucide-react"
 import { useEffect, useRef } from "react"
 import Link from "next/link"
+import { useLanguage } from "@/lib/useLanguage"
+import translations from "@/public/language/i18n.json"
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
+
+  // Idioma actual
+  const { lang } = useLanguage()
+  const t = translations[lang].hero
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -14,7 +20,7 @@ export function HeroSection() {
           if (entry.isIntersecting)
             entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-4")
         }),
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     )
 
     sectionRef.current?.querySelectorAll(".animate-on-scroll")?.forEach((el) => observer.observe(el))
@@ -47,7 +53,7 @@ export function HeroSection() {
         transition-colors duration-500
       "
     >
-      {/* 🔥 Suave Glow del Hero (NO fondo sólido, no genera bordes) */}
+      {/* Glow suave */}
       <div
         className="
           absolute inset-0 gradient-purple-blue blur-[120px] opacity-20 dark:opacity-30 pointer-events-none
@@ -63,44 +69,47 @@ export function HeroSection() {
             {/* Title */}
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
-                Hi, I'm{" "}
+                {t.hi}{" "}
                 <span className="gradient-text dark:from-purple-300 dark:to-blue-300">
-                  Steven Ortega
+                  {t.name}
                 </span>
               </h1>
 
               <p className="text-xl sm:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed text-pretty">
-                Full Stack Developer passionate about Artificial Intelligence and technology.
+                {t.desc}
               </p>
             </div>
 
-            {/* Social buttons */}
+            {/* Social Buttons */}
             <div className="flex flex-wrap gap-4">
-              <a href="https://www.linkedin.com/in/steven-ortega-046874339/"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className={`${buttonOutline} neon-glow-purple`}
+              <a
+                href="https://www.linkedin.com/in/steven-ortega-046874339/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${buttonOutline} neon-glow-purple`}
               >
                 <Linkedin className="mr-2 h-5 w-5" />
-                LinkedIn
+                {t.linkedin}
               </a>
 
-              <a href="https://github.com/St-Alejo"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className={`${buttonOutline} neon-glow-blue`}
+              <a
+                href="https://github.com/St-Alejo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${buttonOutline} neon-glow-blue`}
               >
                 <Github className="mr-2 h-5 w-5" />
-                GitHub
+                {t.github}
               </a>
 
-              <a href="https://wa.me/573187993643"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className={`${buttonOutline} neon-glow-cyan`}
+              <a
+                href="https://wa.me/573187993643"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${buttonOutline} neon-glow-cyan`}
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
-                WhatsApp
+                {t.whatsapp}
               </a>
             </div>
 
@@ -108,17 +117,17 @@ export function HeroSection() {
             <div className="flex flex-wrap gap-4">
               <Link href="/game" className={`${buttonGradient} neon-glow-cyan animate-pulse`}>
                 <Gamepad2 className="mr-2 h-5 w-5" />
-                Game Mode
+                {t.btnGame}
               </Link>
 
               <a href="#projects" className={`${buttonGradient} neon-glow-purple`}>
                 <Briefcase className="mr-2 h-5 w-5" />
-                View Projects
+                {t.btnProjects}
               </a>
 
               <a href="/cv.pdf" download className={`${buttonOutline} hover:scale-105`}>
                 <FileText className="mr-2 h-5 w-5" />
-                Download CV
+                {t.btnCV}
               </a>
             </div>
 
@@ -127,8 +136,8 @@ export function HeroSection() {
           {/* RIGHT SIDE IMAGE */}
           <div className="animate-on-scroll flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md aspect-square">
-              
-              {/* Inner glow for the image */}
+
+              {/* Inner glow */}
               <div
                 className="
                   absolute inset-0 gradient-purple-blue rounded-full blur-3xl opacity-25
