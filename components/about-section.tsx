@@ -72,31 +72,52 @@ export function AboutSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+<div className="grid lg:grid-cols-2 gap-12 items-start">
 
-          {/* LEFT TEXT */}
-          <div className="space-y-6 animate-on-scroll">
-            <h3 className="text-2xl font-bold bg-linear-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
-              Get to know me!
-            </h3>
+  {/* LEFT — ABOUT + HOBBIES */}
+  <div className="space-y-10 animate-on-scroll">
 
-            <div className="space-y-4">
+    {/* ABOUT ME */}
+    <div className="space-y-6">
+      <h3 className="text-2xl font-bold bg-linear-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
+        Get to know me!
+      </h3>
 
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                I'm a <strong className="text-gray-900 dark:text-white">Frontend Focused Web Developer</strong> building modern interfaces, interactive experiences, and high-quality web applications.
-              </p>
+      <div className="space-y-4">
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+          I'm a <strong className="text-gray-900 dark:text-white">Software Engineer</strong> 
+          passionate about Web and Backend Development, building modern, efficient, 
+          and scalable solutions.
+        </p>
 
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                I enjoy sharing everything I’ve learned during my journey in{" "}
-                <strong className="text-gray-900 dark:text-white">Web Development</strong> to help others in the Dev Community.
-              </p>
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+          I'm also deeply interested in Cybersecurity and AI-powered Automation,
+          combining these fields to create smarter, safer, and high-performance systems.
+        </p>
 
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                I'm open to <strong className="text-gray-900 dark:text-white">job opportunities</strong> where I can contribute, grow, and make meaningful impact. Feel free to reach out!
-              </p>
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+          I enjoy learning and sharing knowledge with the developer community,
+          contributing with experience, best practices, and real-world projects.
+        </p>
+      </div>
+    </div>
 
-            </div>
-          </div>
+    {/* HOBBIES & INTERESTS */}
+    <div className="space-y-4">
+      <h3 className="text-2xl font-bold bg-linear-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
+        My Hobbies & Interests
+      </h3>
+
+      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+        Beyond my passion for technology, I enjoy living new experiences outside of coding. 
+        I love traveling the world and discovering new cultures, playing soccer and volleyball 
+        to stay active, and going for motorcycle rides whenever I can. I'm also a big fan of 
+        video games and movies—spaces where I relax, get inspired, and connect with my creative side.
+      </p>
+    </div>
+
+  </div>
+          
 
           {/* RIGHT: SKILLS */}
           <div className="animate-on-scroll">

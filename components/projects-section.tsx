@@ -7,23 +7,23 @@ const projects = [
   {
     id: 1,
     title: "Pharmazync",
-    description: "A comprehensive pharmacy management system with inventory tracking and prescription management.",
+    description: "An AI-powered pharmaceutical chatbot, developed using automated workflows in n8n. It handles inquiries about drugs, stock, interactions, general recommendations, and referral to human staff, integrating APIs, validations, and custom logic to provide accurate and fast responses.",
     image: "/pharmacy-management-dashboard.jpg",
-    link: "",
+    link: "https://github.com/SantiagoArTyrs/PharmaSync.git",
   },
   {
     id: 2,
     title: "Clock App",
-    description: "Modern clock application with world time zones, alarms, and stopwatch functionality.",
+    description: "An advanced clock programmed in Python that manages multiple time zones using date and time libraries. It allows you to check international times, adjust specific regions, and run additional functions such as time conversion, custom formats, and automated utilities.",
     image: "/modern-digital-clock-interface.jpg",
-    link: "",
+    link: "https://github.com/St-Alejo/Estructura.Datos.git",
   },
   {
     id: 3,
     title: "Centers Platform",
-    description: "Educational centers management platform for course scheduling and student enrollment.",
+    description: "Streaming platform-like interface made in JavaScript, with smooth navigation, dynamic catalog, and design inspired by modern services like Netflix.",
     image: "/education-platform-dashboard.png",
-    link: "",
+    link: "https://github.com/St-Alejo/centers-centro-de-peliculas.git",
   },
 ]
 
