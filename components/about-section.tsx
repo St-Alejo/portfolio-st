@@ -75,7 +75,6 @@ export function AboutSection() {
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
 
-          {/* LEFT */}
           <div className="space-y-10 animate-on-scroll">
 
             <div className="space-y-6">
@@ -105,7 +104,6 @@ export function AboutSection() {
 
           </div>
 
-          {/* RIGHT - Skills */}
           <div className="animate-on-scroll">
             <h3 className="text-2xl font-bold bg-linear-to-r from-purple-500 to-blue-500 
             dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent mb-6">

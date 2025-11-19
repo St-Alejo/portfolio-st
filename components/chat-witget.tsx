@@ -112,7 +112,6 @@ export function ChatWidget() {
 
   return (
     <>
-      {/* Floating Button */}
       <motion.div
         className="fixed bottom-6 right-6 z-50"
         initial={{ scale: 0 }}
@@ -145,7 +144,6 @@ export function ChatWidget() {
             )}
           </AnimatePresence>
 
-          {/* Main Button */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
             onMouseEnter={() => setShowTooltip(true)}
@@ -194,7 +192,7 @@ export function ChatWidget() {
             className="fixed bottom-24 right-6 z-50 w-[90vw] max-w-md"
           >
             <div className="bg-background border border-border rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl">
-              {/* Header */}
+
               <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -218,7 +216,6 @@ export function ChatWidget() {
                 </div>
               </div>
 
-              {/* Messages */}
               <div
                 ref={scrollAreaRef}
                 className="h-[400px] overflow-y-auto p-4 bg-muted/30 space-y-4"

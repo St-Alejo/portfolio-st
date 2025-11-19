@@ -9,7 +9,6 @@ import translations from "@/public/language/i18n.json"
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  // Idioma actual
   const { lang } = useLanguage()
   const t = translations[lang].hero
 
@@ -109,7 +108,6 @@ export function HeroSection() {
               </a>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
               <a href="#projects" className={`${buttonGradient} neon-glow-purple`}>
                 <Briefcase className="mr-2 h-5 w-5" />
@@ -139,7 +137,7 @@ export function HeroSection() {
               />
 
               <img
-                src="R.jpeg"
+                src="steven.jpg"
                 alt="Steven Ortega"
                 className="
                   relative z-10 w-full h-full object-cover rounded-2xl

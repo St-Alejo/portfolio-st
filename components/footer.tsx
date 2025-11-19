@@ -14,7 +14,6 @@ export function Footer() {
 
         <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
 
-          {/* LEFT */}
           <div className="space-y-4 text-center md:text-left">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
               Steven Ortega
@@ -25,7 +24,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* RIGHT */}
           <div className="flex flex-col items-center md:items-end">
             <h3 className="text-xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent mb-5">
               {t.social}
@@ -33,7 +31,6 @@ export function Footer() {
 
             <div className="flex gap-5">
 
-              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/steven-ortega-046874339/"
                 target="_blank"
@@ -44,7 +41,6 @@ export function Footer() {
                 <Linkedin className="h-6 w-6 text-purple-500 dark:text-purple-300" />
               </a>
 
-              {/* WhatsApp */}
               <a
                 href="https://wa.me/573187993643"
                 target="_blank"
@@ -55,7 +51,6 @@ export function Footer() {
                 <MessageCircle className="h-6 w-6 text-blue-600 dark:text-cyan-300" />
               </a>
 
-              {/* GitHub */}
               <a
                 href="https://github.com/St-Alejo"
                 target="_blank"
@@ -71,7 +66,7 @@ export function Footer() {
 
         </div>
 
-        {/* BOTTOM LINE */}
+    
         <div className="text-center pt-6 border-t border-gray-300/60 dark:border-purple-500/20">
           <p className="text-sm text-gray-700 dark:text-gray-400">
             © {new Date().getFullYear()} — Steven Ortega. {t.rights}

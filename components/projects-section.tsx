@@ -5,9 +5,6 @@ import { ExternalLink } from "lucide-react"
 import { useLanguage } from "@/lib/useLanguage"
 import translations from "@/public/language/i18n.json"
 
-/* -------------------------------------------------------------------------- */
-/*                                🔧 TIPADOS TS                                */
-/* -------------------------------------------------------------------------- */
 
 const projects = [
   { id: 1, key: "pharmazync", image: "/projects/PharmaSync.webp", link: "https://github.com/SantiagoArTyrs/PharmaSync.git" },
@@ -40,9 +37,7 @@ type CertificateKey = typeof certificates[number]["key"]
 type ProjectTranslationKey = `${ProjectKey}_title` | `${ProjectKey}_desc`
 type CertificateTranslationKey = `${CertificateKey}_title`
 
-/* -------------------------------------------------------------------------- */
-/*                             📌 COMPONENTE PRINCIPAL                          */
-/* -------------------------------------------------------------------------- */
+
 
 export function ProjectsSection() {
   const [activeTab, setActiveTab] = useState<"projects" | "certificates">("projects")
@@ -65,7 +60,6 @@ export function ProjectsSection() {
   return (
     <section id="projects" ref={sectionRef} className="py-20 relative">
 
-      {/* Background Glow */}
       <div className="absolute inset-0 gradient-purple-blue blur-[160px] opacity-15 dark:opacity-25 pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -81,7 +75,6 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        {/* TABS */}
         <div className="w-full flex justify-center mb-12">
           <div className="grid grid-cols-2 w-full max-w-md p-1 rounded-xl bg-white/20 dark:bg-black/30 backdrop-blur-xl border border-gray-300/50 dark:border-purple-500/20">
 
@@ -110,7 +103,6 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        {/* ===================== PROJECTS GRID ===================== */}
         {activeTab === "projects" && (
           <div className="space-y-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -158,7 +150,6 @@ export function ProjectsSection() {
           </div>
         )}
 
-        {/* ===================== CERTIFICATES GRID ===================== */}
         {activeTab === "certificates" && (
           <div className="space-y-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
