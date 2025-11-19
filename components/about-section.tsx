@@ -55,14 +55,13 @@ export function AboutSection() {
   return (
     <section id="about" ref={sectionRef} className="py-20 relative">
 
-      {/* Aura interna */}
       <div className="absolute inset-0 pointer-events-none opacity-20 dark:opacity-40">
         <div className="absolute inset-0 gradient-purple-blue blur-[120px]" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* TÍTULO */}
+
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-linear-to-r from-blue-500 to-purple-500 
           dark:from-blue-300 dark:to-purple-300 bg-clip-text text-transparent">
@@ -79,7 +78,6 @@ export function AboutSection() {
           {/* LEFT */}
           <div className="space-y-10 animate-on-scroll">
 
-            {/* About me */}
             <div className="space-y-6">
               <h3 className="text-2xl font-bold bg-linear-to-r from-purple-500 to-blue-500 
               dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
@@ -93,7 +91,7 @@ export function AboutSection() {
               </div>
             </div>
 
-            {/* Hobbies */}
+
             <div className="space-y-4">
               <h3 className="text-2xl font-bold bg-linear-to-r from-purple-500 to-blue-500 
               dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">

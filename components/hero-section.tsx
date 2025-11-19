@@ -1,6 +1,6 @@
 "use client"
 
-import { Github, Linkedin, MessageCircle, FileText, Briefcase, Gamepad2 } from "lucide-react"
+import { Github, Linkedin, MessageCircle, FileText, Briefcase } from "lucide-react"
 import { useEffect, useRef } from "react"
 import Link from "next/link"
 import { useLanguage } from "@/lib/useLanguage"
@@ -53,7 +53,6 @@ export function HeroSection() {
         transition-colors duration-500
       "
     >
-      {/* Glow suave */}
       <div
         className="
           absolute inset-0 gradient-purple-blue blur-[120px] opacity-20 dark:opacity-30 pointer-events-none
@@ -63,10 +62,8 @@ export function HeroSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-          {/* LEFT SIDE */}
           <div className="space-y-8 animate-on-scroll">
 
-            {/* Title */}
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
                 {t.hi}{" "}
@@ -80,7 +77,6 @@ export function HeroSection() {
               </p>
             </div>
 
-            {/* Social Buttons */}
             <div className="flex flex-wrap gap-4">
               <a
                 href="https://www.linkedin.com/in/steven-ortega-046874339/"
@@ -115,17 +111,11 @@ export function HeroSection() {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
-              <Link href="/game" className={`${buttonGradient} neon-glow-cyan animate-pulse`}>
-                <Gamepad2 className="mr-2 h-5 w-5" />
-                {t.btnGame}
-              </Link>
-
               <a href="#projects" className={`${buttonGradient} neon-glow-purple`}>
                 <Briefcase className="mr-2 h-5 w-5" />
                 {t.btnProjects}
               </a>
 
-              
               <a
                 href="/cv/CV_Steven.pdf"
                 download
@@ -138,11 +128,9 @@ export function HeroSection() {
 
           </div>
 
-          {/* RIGHT SIDE IMAGE */}
           <div className="animate-on-scroll flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md aspect-square">
 
-              {/* Inner glow */}
               <div
                 className="
                   absolute inset-0 gradient-purple-blue rounded-full blur-3xl opacity-25

@@ -7,7 +7,6 @@ import translations from "@/public/language/i18n.json"
 export function ExperienceSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  // idioma actual
   const { lang } = useLanguage()
   const t = translations[lang].experience
 
@@ -52,12 +51,10 @@ export function ExperienceSection() {
   return (
     <section id="experience" ref={sectionRef} className="py-20 relative">
 
-      {/* Glow background */}
       <div className="absolute inset-0 gradient-purple-blue blur-[140px] opacity-15 dark:opacity-25 pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* Title */}
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-cyan-400 dark:from-blue-300 dark:to-cyan-300 bg-clip-text text-transparent">
             {t.title}
@@ -68,7 +65,6 @@ export function ExperienceSection() {
           </p>
         </div>
 
-        {/* Experience Cards */}
         <div className="max-w-4xl mx-auto space-y-6">
           {experiences.map((exp, index) => (
             <div
@@ -82,18 +78,16 @@ export function ExperienceSection() {
             >
               <div className="bg-white/90 dark:bg-black/40 backdrop-blur-md rounded-xl p-6 border border-gray-200 dark:border-purple-500/20 transition-all duration-300">
 
-                {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                   <h3 className="text-xl font-semibold bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
                     {exp.role}
                   </h3>
 
                   <span className="text-sm font-mono text-gray-600 dark:text-gray-400">
-                    {exp.duration}
+                    
                   </span>
                 </div>
 
-                {/* Content */}
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   {exp.description}
                 </p>

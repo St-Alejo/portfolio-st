@@ -3,7 +3,9 @@
 import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { MessageCircle, X, Send } from 'lucide-react'
+import { MessageCircle, X, Send } from "lucide-react"
+import { useLanguage } from "@/lib/useLanguage"
+import translations from "@/public/language/i18n.json"
 
 interface Message {
   id: string
@@ -13,12 +15,15 @@ interface Message {
 }
 
 export function ChatWidget() {
+  const { lang } = useLanguage()
+  const t = translations[lang].chat // ← TRADUCCIONES DINÁMICAS
+
   const [isOpen, setIsOpen] = useState(false)
   const [showTooltip, setShowTooltip] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "¡Hola! Soy el asistente de Steven. ¿En qué puedo ayudarte? 😊",
+      text: t.tooltip, // mensaje inicial traducido
       sender: "bot",
       timestamp: new Date(),
     },
@@ -71,7 +76,7 @@ export function ChatWidget() {
       }
 
       let botResponse =
-        data.output || data.text || data.response || data.message || "Lo siento, hubo un error 😅"
+        data.output || data.text || data.response || data.message || "Error"
 
       setMessages((prev) => [
         ...prev,
@@ -88,7 +93,7 @@ export function ChatWidget() {
         ...prev,
         {
           id: (Date.now() + 2).toString(),
-          text: "⚠️ Error conectando con el servidor. Intenta más tarde.",
+          text: "⚠️ Error conectando con el servidor.",
           sender: "bot",
           timestamp: new Date(),
         },
@@ -125,7 +130,7 @@ export function ChatWidget() {
                 className="absolute bottom-full right-0 mb-2 whitespace-nowrap"
               >
                 <div className="relative bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">
-                  <p className="text-sm font-medium">Habla conmigo 😄</p>
+                  <p className="text-sm font-medium">{t.tooltip}</p>
 
                   <button
                     onClick={() => setShowTooltip(false)}
@@ -197,8 +202,10 @@ export function ChatWidget() {
                       <MessageCircle className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Chat con Steven</h3>
-                      <p className="text-xs text-white/80">{isLoading ? "Escribiendo..." : "En línea"}</p>
+                      <h3 className="font-semibold">{t.header}</h3>
+                      <p className="text-xs text-white/80">
+                        {isLoading ? t.typing : t.online}
+                      </p>
                     </div>
                   </div>
 
@@ -241,7 +248,7 @@ export function ChatWidget() {
                             : "text-muted-foreground"
                         }`}
                       >
-                        {message.timestamp.toLocaleTimeString("es-ES", {
+                        {message.timestamp.toLocaleTimeString(lang === "es" ? "es-ES" : "en-US", {
                           hour: "2-digit",
                           minute: "2-digit",
                         })}
@@ -278,11 +285,12 @@ export function ChatWidget() {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    placeholder="Escribe tu mensaje..."
+                    placeholder={t.placeholder}
                     disabled={isLoading}
                     className="
-                    flex-1 px-3 py-2 rounded-lg border border-border bg-background 
-                    focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      flex-1 px-3 py-2 rounded-lg border border-border bg-background 
+                      focus:outline-none focus:ring-2 focus:ring-purple-500
+                    "
                   />
 
                   <button
@@ -291,14 +299,15 @@ export function ChatWidget() {
                     className="
                       px-4 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 
                       hover:from-purple-700 hover:to-blue-700 text-white flex 
-                      items-center justify-center disabled:opacity-50"
+                      items-center justify-center disabled:opacity-50
+                    "
                   >
                     <Send className="w-4 h-4" />
                   </button>
                 </div>
 
                 <p className="text-xs text-muted-foreground mt-2 text-center">
-                  Presiona Enter para enviar
+                  {t.pressEnter}
                 </p>
               </div>
             </div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, Sun, Moon, Gamepad2 } from "lucide-react"
+import { Menu, X, Sun, Moon } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useLanguage } from "@/lib/useLanguage"
 import translations from "@/public/language/i18n.json"
@@ -13,7 +13,7 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false)
 
   const { lang, setLang } = useLanguage()
-  const t = translations[lang] // Acceso directo al lenguaje
+  const t = translations[lang]
 
   useEffect(() => {
     setMounted(true)
@@ -33,7 +33,6 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-100 bg-white/80 dark:bg-black/40 backdrop-blur-xl border-b border-gray-300/60 dark:border-purple-500/20 shadow-md dark:shadow-purple-500/10 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
-        {/* LOGO */}
         <Link
           href="#hero"
           className="text-xl font-bold tracking-wide bg-gradient-to-r from-blue-500 to-purple-500 
@@ -42,8 +41,7 @@ export default function Navbar() {
           STEVEN ORTEGA
         </Link>
 
-        {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
+        <div className="hidden md:flex items-center gap-12 text-[0.95rem] font-semibold tracking-wide">
 
           <NavItem name={t.navbar.home} href="#hero" />
           <NavItem name={t.navbar.about} href="#about" />
@@ -52,16 +50,6 @@ export default function Navbar() {
           <NavItem name={t.navbar.experience} href="#experience" />
           <NavItem name={t.navbar.contact} href="#contact" />
 
-          {/* Game Mode */}
-          <Link
-            href="/game"
-            className="px-3 py-1 rounded-lg flex items-center gap-2 bg-gradient-to-r 
-            from-purple-600 to-blue-600 hover:scale-105 transition-all duration-300 text-white shadow-lg shadow-purple-500/20"
-          >
-            <Gamepad2 className="w-4 h-4" /> {t.navbar.gamemode}
-          </Link>
-
-          {/* LANGUAGE BUTTON */}
           <button
             onClick={toggleLang}
             className="px-3 py-1 rounded-lg border border-gray-400/40 dark:border-purple-400/30 
@@ -71,7 +59,7 @@ export default function Navbar() {
             {lang === "en" ? "ES" : "EN"}
           </button>
 
-          {/* DARK / LIGHT */}
+
           <button
             onClick={toggleTheme}
             className="p-2 rounded-xl border border-black/20 bg-white/50 
@@ -84,9 +72,9 @@ export default function Navbar() {
               <Moon className="w-5 h-5 text-gray-800" />
             )}
           </button>
+
         </div>
 
-        {/* MOBILE BUTTON */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden p-2 rounded-lg bg-white/30 dark:bg-black/30 backdrop-blur"
@@ -95,7 +83,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* MOBILE MENU */}
+
       {isOpen && (
         <div className="md:hidden flex flex-col gap-4 px-6 py-5 bg-white/90 dark:bg-black/90 backdrop-blur-xl border-t border-gray-300/60 dark:border-purple-500/20">
 
@@ -106,31 +94,25 @@ export default function Navbar() {
           <NavItemMobile name={t.navbar.experience} href="#experience" setIsOpen={setIsOpen} />
           <NavItemMobile name={t.navbar.contact} href="#contact" setIsOpen={setIsOpen} />
 
-          {/* Game Mode */}
-          <Link
-            href="/game"
-            className="px-3 py-2 rounded-lg flex items-center gap-2 mt-2 bg-gradient-to-r 
-            from-purple-600 to-blue-600 text-white shadow-md shadow-purple-500/30"
-          >
-            <Gamepad2 className="w-4 h-4" /> {t.navbar.gamemode}
-          </Link>
 
-          {/* Language */}
           <button
             onClick={toggleLang}
-            className="px-3 py-2 rounded-lg border border-gray-400/40 dark:border-purple-400/30"
+            className="px-3 py-2 rounded-lg border border-gray-400/40 dark:border-purple-400/30 dark:text-white"
           >
             {lang === "en" ? "ES" : "EN"}
           </button>
 
-          {/* Theme */}
           <button
             onClick={toggleTheme}
             className="p-2 rounded-xl border mt-2 border-black/20 bg-white/50 
             dark:border-purple-500/30 dark:bg-black/50 hover:bg-white/70 dark:hover:bg-black/70 
             backdrop-blur-sm transition-all duration-300"
           >
-            {theme === "dark" ? <Sun className="w-5 h-5 text-yellow-300" /> : <Moon className="w-5 h-5 text-gray-800" />}
+            {theme === "dark" ? (
+              <Sun className="w-5 h-5 text-yellow-300" />
+            ) : (
+              <Moon className="w-5 h-5 text-gray-800" />
+            )}
           </button>
         </div>
       )}
@@ -138,15 +120,21 @@ export default function Navbar() {
   )
 }
 
-/* COMPONENTS */
 
 function NavItem({ name, href }: { name: string; href: string }) {
   return (
-    <Link href={href} className="hover:text-purple-500 dark:hover:text-purple-400 text-gray-900 dark:text-white transition-colors duration-200">
+    <Link
+      href={href}
+      className="relative hover:text-purple-400 dark:hover:text-purple-300 text-gray-900 dark:text-white 
+                 transition-all duration-200 after:absolute after:left-0 after:-bottom-1 after:w-0 
+                 after:h-[2px] after:bg-purple-400 dark:after:bg-purple-300 hover:after:w-full 
+                 after:transition-all after:duration-300"
+    >
       {name}
     </Link>
   )
 }
+
 
 function NavItemMobile({
   name,
@@ -161,7 +149,8 @@ function NavItemMobile({
     <Link
       href={href}
       onClick={() => setIsOpen(false)}
-      className="py-2 border-b border-gray-300/30 dark:border-purple-500/20 hover:text-purple-500 dark:hover:text-purple-400 text-gray-900 dark:text-white transition-all"
+      className="py-2 border-b border-gray-300/30 dark:border-purple-500/20 hover:text-purple-500 
+                 dark:hover:text-purple-400 text-gray-900 dark:text-white transition-all"
     >
       {name}
     </Link>
