@@ -5,28 +5,29 @@ import { useEffect, useRef } from "react"
 const testimonials = [
   {
     id: 1,
-    name: "Person 1",
-    role: "CEO, Tech Company",
+    name: "Valentina Vasquez",
+    role: "Student of UCC",
     content:
-      "Aliquam ac dui vel dui vulputate consectetur. Mauris massa. Vestibulum non nulla. Aliquam ac dui vel dui vulputate consectetur. Mauris massa. In placerat diam a fringilla pulvinar. In sed mauris ac eget sem.",
-    image: "/professional-person-1.png",
+      "Working with Steven was a great experience. He has an incredible ability to solve problems, communicates his ideas very well, and always looks for the best technical solution. His commitment and professionalism made the project progress quickly and efficiently.",
+    image: "/Valentina.png",
   },
   {
     id: 2,
-    name: "Person 2",
-    role: "CTO, Startup Inc",
+    name: "Jose Burbano",
+    role: "Student of UCC",
     content:
-      "Aliquam ac dui vel dui vulputate consectetur. Mauris massa. Vestibulum non nulla. Aliquam ac dui vel dui vulputate consectetur. Mauris massa. In placerat diam a fringilla pulvinar. In sed mauris ac eget sem.",
+      "Steven is a very solid engineer, skilled in both frontend and backend, and he always finds ways to optimize every part of the system. Collaborating with him was easy and productive; he maintains a smooth work environment and brings ideas that enhance the quality of the project.",
     image: "/professional-person-2.png",
   },
   {
     id: 3,
-    name: "Person 3",
-    role: "Product Manager, Enterprise",
+    name: "Santiago Arevalo",
+    role: "Student of UCC",
     content:
-      "Aliquam ac dui vel dui vulputate consectetur. Mauris massa. Vestibulum non nulla. Aliquam ac dui vel dui vulputate consectetur. Mauris massa. In placerat diam a fringilla pulvinar. In sed mauris ac eget sem.",
-    image: "/professional-person-3.png",
+      "Steven stands out for his responsibility, his ability to learn, and his skill at working in a team. He is proactive, creative, and has a strong command of development tools. Without a doubt, working with him made the process more efficient and enjoyable.",
+    image: "/Arevalo.jpg",
   },
+
 ]
 
 export function TestimonialsSection() {
